@@ -1,0 +1,1 @@
+# @TEST-EXEC: zeek --bare-mode {{ cookiecutter.project_slug }}
