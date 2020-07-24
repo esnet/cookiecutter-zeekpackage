@@ -11,7 +11,6 @@ Features
 
 * Script testing with ``btest``
 * Travis-CI: Ready for Travis Continuous Integration testing
-* Sphinx docs: Documentation ready for generation with, for example, `Read the Docs`
 
 Quickstart
 ----------
