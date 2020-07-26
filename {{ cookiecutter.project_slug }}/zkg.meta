@@ -3,6 +3,6 @@ description = {{ cookiecutter.project_short_description }}
 credits = {{ cookiecutter.project_credits }}
 tags = {{ cookiecutter.metadata_tags }}
 
-test_command = cd tests && btest -d
+test_command = cd tests && make
 
 script_dir = ./scripts/{{ cookiecutter.project_slug }}

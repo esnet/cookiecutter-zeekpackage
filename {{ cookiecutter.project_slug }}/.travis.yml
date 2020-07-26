@@ -1,5 +1,6 @@
 # Config file for automatic testing at travis-ci.com
 
+language: cpp
 dist: bionic
 
 addons:
@@ -8,10 +9,16 @@ addons:
       - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
         key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
     packages:
-    - zeek
+    - zeek-core
+
+before_script:
+  - pip install --user cpp-coveralls
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: bash ./.ci_scripts/install.sh
+install: sudo bash ./.ci_scripts/install.sh
 
 # Command to run tests, e.g. python setup.py test
-script: zkg install $TRAVIS_REPO_SLUG
+script: sudo bash ./.ci_scripts/test.sh
+
+after_success:
+  - coveralls -i scripts --gcov-options '\-lp'

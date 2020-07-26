@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+from pathlib import Path, PurePath
+
+# We are pkg/tests/Scripts/coverage-to-gcov
+# .parent is pkg/tests/Scripts
+# .parent.parent is pkg/tests
+# .parent.parent.parent is pkg
+test_dir = Path(__file__).resolve().parent.parent
+
+coverage_results = {}
+script_files = {}
+
+with open(PurePath.joinpath(test_dir, ".tmp", "script-coverage", "coverage.stats"), 'r') as f:
+    for l in f.readlines():
+        # Parse the Zeek stats line
+        count, code_loc, source = l.strip().split('\t', 3)
+        count = count.strip()
+        file_loc, line = code_loc.split(', ', 1)
+
+        if 'lines ' in line:
+            start, end = line.split('lines ', 1)[1].split('-')
+            lines = range(int(start), int(end) + 1)
+        else:
+            lines = [int(line.split('line ', 1)[1])]
+
+        file_path = Path(file_loc).resolve()
+        if str(file_path.parent).startswith(str(test_dir.parent)):
+            source_file = str(file_path)
+            if source_file not in coverage_results:
+                coverage_results[source_file] = []
+            if source_file not in script_files:
+                with open(source_file, 'r') as zeek_script:
+                    script_files[source_file] = zeek_script.readlines()
+            for line_no in lines:
+                source_line = script_files[source_file][line_no - 1].strip()
+                coverage_results[source_file].append(f"{count}:{line_no}:{source_line}")
+
+for k, v in coverage_results.items():
+    with open(k + ".gcov", 'w') as f:
+        f.write(f"-:0:Source:{k}\n")
+        f.write('\n'.join(v))
