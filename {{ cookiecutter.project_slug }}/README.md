@@ -32,7 +32,7 @@ zeekctl deploy
 
 ## Running the tests
 
-`zkg` will run the test suite before installing. To manually run the tests, go into the `tests` directory, and run `btest`.
+`zkg` will run the test suite before installing. To manually run the tests, go into the `tests` directory, and run `make`.
 
 ## Contributing
 
