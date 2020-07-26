@@ -2,9 +2,27 @@
 
 set -e
 
+function debug_and_die {
+	OUTPUT_PATH=$HOME/.zkg/testing/{{ cookiecutter.project_slug }}/clones/{{ cookiecutter.project_slug }}
+	if [ -s $OUTPUT_PATH/zkg.test_command.stdout ]; then
+		echo "zkg test command stdout"
+		echo "-----------------------"
+		cat $OUTPUT_PATH/zkg.test_command.stdout
+	fi
+
+	if [ -s $OUTPUT_PATH/zkg.test_command.stderr ]; then
+		echo "zkg test command stderr"
+		echo "-----------------------"
+		cat $OUTPUT_PATH/zkg.test_command.stderr
+	fi
+
+	exit 1
+}
+
 export PATH=/usr/local/zeek/bin:/opt/zeek/bin:$PATH
 
-zkg test "$PWD" || $(for i in ~/.zkg/testing/{{ cookiecutter.project.slug }}/clones/{{ cookiecutter.project_slug}}/*; do echo "$i"; echo "------------"; cat "$i"; done; exit 1)
-zkg install --force --skiptests "$PWD" || $(for i in ~/.zkg/testing/{{ cookiecutter.project.slug }}/clones/{{ cookiecutter.project_slug}}/*; do echo "$i"; echo "------------"; cat "$i"; done; exit 1)
-zkg test "$PWD"
-zkg install --force --skiptests "$PWD"
+echo "Running zkg test..."
+zkg test "$PWD" || debug_and_die
+echo "Tests succeeded. Running zkg install..."
+zkg install --force --skiptests "$PWD" || debug_and_die
+echo "Install succeeded."

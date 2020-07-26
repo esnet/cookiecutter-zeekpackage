@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+"$SCRIPT_DIR/combine-profiler-files"
+
+if [ ! -s "$SCRIPT_DIR/../.tmp/script-coverage/coverage.stats" ]
+then
+    echo "No coverage statistics found, skipping coverage analysis."
+    exit
+fi
+
+# Convert the Brofiler stats to gcov
+"$SCRIPT_DIR/coverage-to-gcov"
+
+if [ "$CI" == "true" ]
+then
+    # Send to coveralls.io
+    cd "$SCRIPT_DIR/../.."; coveralls -i scripts --gcov-options '\-lp'
+fi

@@ -1,6 +1,6 @@
 # Config file for automatic testing at travis-ci.com
 
-language: cpp
+language: minimal
 dist: bionic
 
 addons:
@@ -12,13 +12,10 @@ addons:
     - zeek-core
 
 before_script:
-  - pip install --user cpp-coveralls
+  - sudo pip install cpp-coveralls
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: sudo bash ./.ci_scripts/install.sh
 
 # Command to run tests, e.g. python setup.py test
 script: sudo bash ./.ci_scripts/test.sh
-
-after_success:
-  - coveralls -i scripts --gcov-options '\-lp'
