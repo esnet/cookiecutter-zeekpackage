@@ -1,6 +1,8 @@
 {% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
 
-# {{ cookiecutter.project_name }}
+# Zeek Package for {{ cookiecutter.project_name }}
+
+[![Build Status](https://travis-ci.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}.svg?branch=master)](https://travis-ci.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})  [![Coverage Status](https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/badge.svg?branch=master)](https://coveralls.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}?branch=master)  ![GitHub](https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
 
 {{ cookiecutter.project_short_description }}
 
