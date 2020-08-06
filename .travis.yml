@@ -1,5 +1,23 @@
 # Config file for automatic testing at travis-ci.com
 
-install: pip install --no-input cookiecutter; cookiecutter --no-input .
+language: minimal
+dist: bionic
 
-import: evil_bit_checker/.travis.yml
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
+        key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
+    packages:
+    - zeek-core
+
+before_script:
+  - sudo pip install cpp-coveralls
+
+# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install: pip install --no-input cookiecutter; cookiecutter --no-input .; sudo bash evil_bit_checker/.ci_scripts/install.sh
+
+# Command to run tests, e.g. python setup.py test
+script: sudo bash ./.ci_scripts/test.sh
+
+
