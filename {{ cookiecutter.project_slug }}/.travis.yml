@@ -32,6 +32,13 @@ matrix:
           packages:
             - zeek-nightly-core
 
+    - name: Zeek MacOS
+      os: osx
+      addons:
+        homebrew:
+          packages:
+            - zeek
+
 before_script:
   - sudo pip install cpp-coveralls
 
