@@ -2,12 +2,12 @@
     "project_name": "Evil Bit Checker",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_short_description": "Checks for the evil bit being set",
-    "project_credits": "$GIT_USER <$GIT_MAIL>",
+    "project_credits": "Alice <alice@email.com>, Bob <bob@email.com>",
     "project_namespace": "Local",
 
     "metadata_tags": "network, evil, rfc3514",
 
-    "github_username": "$GIT_USER",
+    "github_username": "alice",
 
     "copyright_owner": "Veridian Technologies",
     "open_source_license": ["BSD license", "MIT license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
