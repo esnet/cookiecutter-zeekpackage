@@ -5,4 +5,4 @@ tags = {{ cookiecutter.metadata_tags }}
 
 test_command = cd tests && make
 
-script_dir = ./scripts/{{ cookiecutter.project_slug }}
+script_dir = ./scripts
