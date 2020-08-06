@@ -1,0 +1,19 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - test
+
+test:
+  image: grigorescu/zeek-build:centos8
+  stage: test
+  before_script:
+    - curl -L -o /etc/yum.repos.d/zeek.repo https://download.opensuse.org/repositories/security:zeek/CentOS_8/security:zeek.repo
+    - yum install -y python3-libs python3-pip zeek-core
+    - ./.ci_scripts/install.sh
+  script:
+    - ./.ci_scripts/test.sh
+  artifacts:
+    reports:
+      cobertura: .coverage.cobertura.xml
+      junit: .btest_output.xml

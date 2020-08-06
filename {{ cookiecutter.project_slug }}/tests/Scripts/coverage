@@ -17,6 +17,13 @@ fi
 
 if [ "$CI" == "true" ]
 then
-    # Send to coveralls.io
-    cd "$SCRIPT_DIR/../.."; coveralls -i scripts --gcov-options '\-lp'
+    if [ "$TRAVIS" == "true" ]
+    then
+        # Send to coveralls.io
+        cd "$SCRIPT_DIR/../.."; coveralls -i scripts --gcov-options '\-lp'
+    elif [ "$GITLAB_CI" == "true" ]
+    then
+        cp "$SCRIPT_DIR/../.btest_output.xml" "$CI_PROJECT_DIR/.btest_output.xml"
+        cd "$SCRIPT_DIR/../.."; gcovr -g -r scripts --xml -o "$CI_PROJECT_DIR/.coverage.cobertura.xml"
+    fi
 fi
