@@ -1,0 +1,5 @@
+# Config file for automatic testing at travis-ci.com
+
+install: pip install --no-input cookiecutter; cookiecutter --no-input .
+
+import: evil_bit_checker/.travis.yml
