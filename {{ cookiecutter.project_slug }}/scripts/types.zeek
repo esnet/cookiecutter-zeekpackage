@@ -1,6 +1,6 @@
-##! Types used by the {{ project_slug }} plugin.
+##! Types used by the {{ cookiecutter.project_slug }} plugin.
 
-module {{ project_namespace }};
+module {{ cookiecutter.project_namespace }};
 
 # export {
 #
