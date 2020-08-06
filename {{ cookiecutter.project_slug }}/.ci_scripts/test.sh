@@ -19,7 +19,7 @@ function debug_and_die {
 	exit 1
 }
 
-export PATH=/usr/local/zeek/bin:/opt/zeek/bin:$PATH
+export PATH=/usr/local/zeek/bin:/opt/zeek/bin:/opt/zeek-nightly/bin:$PATH
 
 echo "Running zkg test..."
 zkg test "$PWD" || debug_and_die

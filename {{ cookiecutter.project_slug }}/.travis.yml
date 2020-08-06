@@ -5,7 +5,8 @@ dist: bionic
 
 matrix:
   include:
-    - addons:
+    - name: Zeek LTS
+      addons:
         apt:
           sources:
             - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
@@ -13,7 +14,8 @@ matrix:
           packages:
             - zeek-lts-core
 
-    - addons:
+    - name: Zeek Current
+      addons:
         apt:
           sources:
             - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
@@ -21,7 +23,8 @@ matrix:
           packages:
             - zeek-core
 
-    - addons:
+    - name: Zeek Nightly
+      addons:
         apt:
           sources:
             - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
