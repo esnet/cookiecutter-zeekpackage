@@ -3,13 +3,31 @@
 language: minimal
 dist: bionic
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
-        key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
-    packages:
-    - zeek-core
+matrix:
+  include:
+    - addons:
+        apt:
+          sources:
+            - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
+              key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
+          packages:
+            - zeek-lts-core
+
+    - addons:
+        apt:
+          sources:
+            - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
+              key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
+          packages:
+            - zeek-core
+
+    - addons:
+        apt:
+          sources:
+            - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
+              key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
+          packages:
+            - zeek-nightly-core
 
 before_script:
   - sudo pip install cpp-coveralls
