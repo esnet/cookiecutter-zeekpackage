@@ -4,8 +4,7 @@ set -e
 
 export PATH=/opt/zeek/bin:$PATH
 
-gem install travis --no-rdoc --no-ri
-find /usr -name travis
+gem install travis --no-document --bindir /usr/local/bin
 
 pip install --no-input cookiecutter
 
