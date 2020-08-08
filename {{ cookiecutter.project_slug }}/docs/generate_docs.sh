@@ -31,10 +31,10 @@ scripts_output_dir=$output_dir/scripts
 rm -rf $scripts_output_dir
 echo "Generating $scripts_output_dir/"
 
-for namespace in "$source_dir/scripts/*"
+for namespace in "$(find $source_dir -type d -depth 1)"
 do
 	for package in "$namespace/*"
-		do
+	do
         script="$(basename $namespace)/$(basename $package)"
 		printf "script\t$script/*\t$scripts_output_dir/" > $conf_file
 		run_zeek "$script"
