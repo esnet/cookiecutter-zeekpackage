@@ -9,6 +9,7 @@ addons:
       - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
         key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
     packages:
+    - ruby-dev
     - zeek-core
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
