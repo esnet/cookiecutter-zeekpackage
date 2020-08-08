@@ -37,7 +37,7 @@ function run_zeek
 
 # For each module (Namespace::Module), run it through zeek, and generate package documentation
 cd "$source_dir"/scripts
-find * -depth 1 -type d -print0 | while IFS="" read -r -d $'\0' namespace
+find * -maxdepth 1 -mindepth 1 -type d -print0 | while IFS="" read -r -d $'\0' namespace
 do
     (cat <<EOF
 script	$namespace/*	$scripts_output_dir/
