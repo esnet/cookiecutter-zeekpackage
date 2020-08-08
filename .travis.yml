@@ -11,13 +11,10 @@ addons:
     packages:
     - zeek-core
 
-before_script:
-  - sudo pip install cpp-coveralls
-
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install --no-input cookiecutter; cookiecutter --no-input -o /tmp .; sudo bash /tmp/evil_bit_checker/.ci_scripts/install.sh
+install: sudo bash .ci_scripts/install.sh
 
 # Command to run tests, e.g. python setup.py test
-script: cd /tmp/evil_bit_checker; git add .; git commit -m 'x'; sudo bash .ci_scripts/test.sh
+script: sudo bash .ci_scripts/test.sh
 
 
