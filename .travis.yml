@@ -12,10 +12,14 @@ addons:
     - ruby-dev
     - zeek-core
 
-# Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: sudo bash .ci_scripts/install.sh
+stages: cookiecutter tests
 
-# Command to run tests, e.g. python setup.py test
-script: sudo bash .ci_scripts/test.sh
+jobs:
+  include:
+    - stage: cookiecutter
+      script: sudo bash .ci_scripts/install.sh
+    - stage: tests
+      import:
+        - source: /tmp/evil_bit_checker/.travis.yml
 
 
