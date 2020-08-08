@@ -11,4 +11,6 @@ echo "Running travis lint..."
 /usr/local/bin/travis lint --com --skip-completion-check --exit-code .travis.yml
 echo "Running zkg test script"
 bash .ci_scripts/test.sh
+echo "Building docs"
+bash make -C docs
 echo "Tests succeeded."
