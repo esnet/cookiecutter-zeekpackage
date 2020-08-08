@@ -1,25 +1,16 @@
-# Config file for automatic testing at travis-ci.com
-
 language: minimal
 dist: bionic
-
 addons:
   apt:
     sources:
-      - sourceline: 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/ /'
-        key_url: 'https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key'
+    - sourceline: deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_18.04/
+        /
+      key_url: https://download.opensuse.org/repositories/security:zeek/xUbuntu_18.04/Release.key
     packages:
     - ruby-dev
     - zeek-core
-
-stages: cookiecutter tests
-
-jobs:
-  include:
-    - stage: cookiecutter
-      script: sudo bash .ci_scripts/install.sh
-    - stage: tests
-      import:
-        - source: /tmp/evil_bit_checker/.travis.yml
-
-
+install: sudo bash .ci_scripts/install.sh
+script: sudo bash .ci_scripts/test.sh
+env:
+  global:
+    secure: udaouVbz7NHGtX6h1EPKeynqxQE7JSMEzoSTAVAXm0/jQ8yyad03mdO3P5ieXeZaJnzcPNyCz0q1awWCElIaQFCWsSKTlU2eHOZe2fwV+LsaLcRTr9L3J67O/lnGubsc7nVDhGezX543KZmoHXsTTOow/L2nJ+m09D53LOFuDDqLff2Vqoar/kEilLf3mf4zXjFjpHBEg7GYyUtvvB5ePMRq5N/bA+NIk8t6R5TVsMEdxe1WIipUIR5Agvvt9h9Hz8+f8yz3+tnTnlefyeC/8640P0meVbjqUQ5ZQSfIJUmIE/PX6hoXaV7BQbO8nCbzZoLByxW2HvR3Unw2eFArrxtD21mqTmgoN+4sMLF70LU5IDxh/aEo848rfpjkQaIb3z7yPp9T5qGEnL+MnfFHXUPHJtjV4mBgIFkmFgEnFIp22hDU4YpHrUIIV9cbeWj/qd9gNIk0VlalTtRZvfGTT0U5y186ZuQkmsTX84nN5Dg07EnKkHblWdW1ioIUHO5Hnl/3Ovdj3oDYGBgX2H4JuL6UcJzZ5xo8ozWJcFNn5VrbZUYawH4Aq3TriXi8MDyR97VMd0IB+N0qZpFU2GXKZLqjDXuRKFZHN4cIvpJDfQVeGKNfTymVgMVLKc7N3GSTh0LwC8UI3CxEdVJiAM7foVi0YJoE8M9Pkx/wpuXIEZI=
