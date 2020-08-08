@@ -12,5 +12,5 @@ echo "Running travis lint..."
 echo "Running zkg test script"
 bash .ci_scripts/test.sh
 echo "Building docs"
-bash make -C docs
+make -C docs
 echo "Tests succeeded."
