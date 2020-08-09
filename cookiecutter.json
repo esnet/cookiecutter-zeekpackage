@@ -13,6 +13,7 @@
     "open_source_license": ["BSD license", "MIT license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
 
     "_copy_without_render": [
-        "docs/_templates/*.html"
+        "docs/_templates/*.html",
+        ".github/workflows/*.yml"
     ]
 }
