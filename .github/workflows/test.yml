@@ -27,3 +27,6 @@ jobs:
 
     - name: Run cookiecutter
       run: cookiecutter --no-input $GITHUB_WORKSPACE
+
+    - name: Test it?
+       uses: ./evil_bit_checker/.github/workflows/btest.yml
