@@ -24,7 +24,7 @@ jobs:
 
     - name: Install cookiecutter and schema checker
       run: |
-        sudo yum install python3-setuptools
+        sudo apt install python3-setuptools
         sudo pip3 install cookiecutter jsonschema ruamel-yaml
 
     - name: Run cookiecutter
