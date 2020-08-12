@@ -31,7 +31,7 @@ jobs:
         source $GITHUB_WORKSPACE/.ci_scripts/set_env_path.sh
         zeek --version
 
-    - name: Install zkg
+    - name: Install zkg and other pip packages
       run: sudo $GITHUB_WORKSPACE/.ci_scripts/install_zkg.sh
 
     - name: Run test and zkg install
