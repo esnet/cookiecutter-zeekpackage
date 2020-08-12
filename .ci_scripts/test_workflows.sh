@@ -10,7 +10,7 @@ do
     do
         cd evil_bit_checker
         cmd=$(echo "$cmd" | sed -e 's/$GITHUB_WORKSPACE/$GITHUB_WORKSPACE\/evil_bit_checker/g')
-        cmd=$(echo "$cmd" | sed -e "s/\${{ matrix.zeek }}/$ZEEK_VER/g")
+        cmd=$(echo "$cmd" | sed -e "s/\$\{\{ matrix.zeek \}\}/$ZEEK_VER/g")
         echo "Running command: $cmd"
         cmd_formatted=$(printf $cmd)
         eval $cmd_formatted
