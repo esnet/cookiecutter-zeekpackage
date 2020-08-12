@@ -13,6 +13,7 @@ do
         cd evil_bit_checker
         cmd=$(echo "$cmd" | sed -e 's/$GITHUB_WORKSPACE/$PWD/g')
         cmd=$(echo "$cmd" | sed -e 's/${{ matrix.zeek }}/'$ZEEK_VER'/g')
+        cmd=$(echo "$cmd" | sed -e 's/^"//' | sed -e 's/"$//')
         echo "Running command: $cmd"
         eval "$(printf "$cmd")"
         cd -
