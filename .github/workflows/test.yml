@@ -34,5 +34,5 @@ jobs:
       run: $GITHUB_WORKSPACE/.ci_scripts/lint_workflows.sh
 
     - name: Test resulting workflow
-      run: $GITHUB_WORKSPACE/.ci_scripts/test_workflows.sh
+      run: $GITHUB_WORKSPACE/.ci_scripts/test_workflows.sh ${{ matrix.zeek }}
 
