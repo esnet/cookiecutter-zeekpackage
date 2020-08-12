@@ -4,9 +4,7 @@ set -e
 
 ZEEK_VER=$1
 
-cd evil_bit_checker
-ls -laR
-cd -
+file /home/runner/work/cookiecutter-zeekpackage/cookiecutter-zeekpackage/evil_bit_checker/.ci_scripts/install_zeek.sh
 
 for i in workflow-lint-*.json
 do
