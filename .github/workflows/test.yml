@@ -22,12 +22,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Install cookiecutter
-      run: sudo pip install cookiecutter
+    - name: Install cookiecutter and schema checker
+      run: sudo pip3 install cookiecutter jsonschema ruamel-yaml
 
     - name: Run cookiecutter
       run: cookiecutter --no-input $GITHUB_WORKSPACE
 
-    - name: Run resulting workflow
-      run: sudo $GITHUB_WORKSPACE/.ci_scripts/test_workflows.sh "${{ matrix.zeek }}"
+    - name: Lint resulting workflow
+      run: $GITHUB_WORKSPACE/.ci_scripts/lint_workflows.sh
 
