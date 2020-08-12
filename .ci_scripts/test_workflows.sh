@@ -4,6 +4,10 @@ set -e
 
 ZEEK_VER=$1
 
+cd evil_bit_checker
+ls -laR
+cd -
+
 for i in workflow-lint-*.json
 do
     jq -c '.jobs.test.steps[].run' "$i" | egrep . | egrep -v "^null$" | while read -r cmd
