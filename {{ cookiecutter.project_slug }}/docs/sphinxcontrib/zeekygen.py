@@ -17,7 +17,10 @@ temp_script_index = os.path.join(rst_script_dir, "tempindex")
 script_index = os.path.join(rst_script_dir, "index.rst")
 package_index = os.path.join(rst_packages_dir, "package_index.rst")
 
-shutil.rmtree(rst_script_dir)
+try:
+    shutil.rmtree(rst_script_dir)
+except FileNotFoundError:
+    pass
 
 os.makedirs(rst_script_dir, exist_ok=True)
 os.makedirs(rst_packages_dir, exist_ok=True)
