@@ -4,9 +4,7 @@ set -e
 
 ZEEK_VER=$1
 
-file /home/runner/work/cookiecutter-zeekpackage/cookiecutter-zeekpackage/evil_bit_checker/.ci_scripts/install_zeek.sh
-
-for i in workflow-lint-*.json
+for i in /tmp/workflow-lint-*.json
 do
     jq -c '.jobs.test.steps[].run' "$i" | egrep . | egrep -v "^null$" | while read -r cmd
     do
