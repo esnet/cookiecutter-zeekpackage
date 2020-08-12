@@ -4,6 +4,8 @@ set -e
 
 ZEEK_VER=$1
 
+env
+
 for i in /tmp/workflow-lint-*.json
 do
     jq -c '.jobs.test.steps[].run' "$i" | egrep . | egrep -v "^null$" | while read -r cmd
