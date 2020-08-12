@@ -6,7 +6,7 @@ ZEEK_VER=$1
 
 for i in workflow-lint-*.json
 do
-    jq -c '.jobs.test.steps[].run' "$i" | egrep . | egrep -v "^null$" | while read cmd
+    jq -c '.jobs.test.steps[].run' "$i" | egrep . | egrep -v "^null$" | while read -r cmd
     do
         cd evil_bit_checker
         cmd=$(echo "$cmd" | sed -e 's/$GITHUB_WORKSPACE/$GITHUB_WORKSPACE\/evil_bit_checker/g')
