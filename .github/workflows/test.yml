@@ -24,7 +24,7 @@ jobs:
 
     - name: Install cookiecutter and schema checker
       run: |
-        sudo apt install python3-setuptools
+        sudo apt install jq python3-setuptools
         sudo pip3 install cookiecutter jsonschema ruamel-yaml
 
     - name: Run cookiecutter
@@ -32,4 +32,7 @@ jobs:
 
     - name: Lint resulting workflow
       run: $GITHUB_WORKSPACE/.ci_scripts/lint_workflows.sh
+
+    - name: Test resulting workflow
+      run: $GITHUB_WORKSPACE/.ci_scripts/test_workflows.sh
 
