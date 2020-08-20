@@ -48,3 +48,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: $GITHUB_WORKSPACE/docs/html
+
+    - name: Coveralls
+      if: matrix.zeek == 'zeek'
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
