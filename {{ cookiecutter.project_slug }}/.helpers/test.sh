@@ -10,7 +10,13 @@ elif [ -d /usr/local/bro ]; then
     ln -sf /usr/local/bro/bin/bro /usr/local/bro/bin/zeek
 fi
 
-command -v btest || pip3 install btest || pip install btest
+if command -v btest; then
+    true
+elif [ -f /build/zeek/aux/btest/btest ]; then
+    export PATH=/build/zeek/aux/btest:$PATH
+else
+    pip3 install --user btest || pip install --user btest
+fi
 
 cd $GITHUB_WORKSPACE/tests
 
