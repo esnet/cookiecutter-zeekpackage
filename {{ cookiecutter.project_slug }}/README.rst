@@ -114,7 +114,22 @@ This package is also tested with the following legacy Zeek (Bro) versions, altho
    :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+2.0%22
    :alt: Zeek v2.0 Test Status
 
-.. include:: docs/contributing.rst
+Contributing
+------------
+
+Contributions are welcome! The easiest way to give back is to comment on `issues <https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues>`_ that are important to you -- even a quick reaction (thumbs-up/heart/thumbs-down) would help us prioritize issues.
+
+There's a more in-depth `contribution guide <docs/contributing.rst>`_ which lays out some ways that anyone can help.
+
+Package Template
+----------------
+
+This package was created with a `template <https://github.com/esnet/cookiecutter-zeekpackage>`_, using `Cruft <https://github.com/cruft/cruft>`_. A `CI job <https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3ACruft>`_ checks for updates to the template. To update the package, simply run:
+
+.. code-block:: console
+
+    pip install -U cruft
+    cruft update
 
 License
 -------
