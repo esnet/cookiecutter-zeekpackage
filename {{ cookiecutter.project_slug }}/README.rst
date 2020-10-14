@@ -62,21 +62,21 @@ If you're operating in a cluster, after performing any of the above changes, you
 Installation
 ------------
 
-.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.0?label=v3.0&logo={{ logo }}
-   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.0%22
-   :alt: Zeek v3.0 Test Status
-
-.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.1?label=v3.1&logo={{ logo }}
-   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.1%22
-   :alt: Zeek v3.1 Test Status
+.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.3?label=v3.3&logo={{ logo }}
+   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.3%22
+   :alt: Zeek v3.3 Test Status
 
 .. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.2?label=v3.2&logo={{ logo }}
    :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.2%22
    :alt: Zeek v3.2 Test Status
 
-.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.3?label=v3.3&logo={{ logo }}
-   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.3%22
-   :alt: Zeek v3.3 Test Status
+.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.1?label=v3.1&logo={{ logo }}
+   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.1%22
+   :alt: Zeek v3.1 Test Status
+
+.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.0?label=v3.0&logo={{ logo }}
+   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.0%22
+   :alt: Zeek v3.0 Test Status
 
 This is a package designed to run with the `Zeek Network Security Monitor <https://zeek.org>`__. First, `get Zeek <https://zeek.org/get-zeek/>`_. We strive to support both the current feature and LTS releases.
 
