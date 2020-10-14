@@ -2,7 +2,7 @@
 
 set -e
 
-curl -o /tmp/github-workflow.json https://raw.githubusercontent.com/Logerfo/schemastore/master/src/schemas/json/github-workflow.json
+curl -o /tmp/github-workflow.json https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-workflow.json
 
 for i in evil_bit_checker/.github/workflows/*.yml
 do
