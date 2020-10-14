@@ -11,20 +11,19 @@ Features
 
 * Script testing with ``btest``
 * GitHub integration: Actions for testing and building documentation as GitHub Pages
-* GitLab CI support
+* Documentation generation
 * Code coverage analysis
 
 Quickstart
 ----------
 
-Install the latest Cookiecutter if you haven't installed it yet (this requires
-Cookiecutter 1.4.0 or higher):
+Install the latest Cruft if you haven't installed it yet
 
-    pip install -U cookiecutter
+    pip install -U cruft
 
 Generate a Zeek package project:
 
-    cookiecutter https://github.com/esnet/cookiecutter-zeekpackage.git
+    cruft create https://github.com/esnet/cookiecutter-zeekpackage.git
 
 Answer some questions, and it will create a new directory for you, initialized as a git repo.
 

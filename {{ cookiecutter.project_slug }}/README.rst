@@ -53,8 +53,7 @@ You can modify the above command by replacing ``upgrade`` with:
 * ``load``, to configure Zeek to load the package on startup (default after an install).
 * ``remove``, to delete the package from the system.
 
-AfteIf you're operating in a cluster, after performing any of the above changes, you'll need to re-run ``zeekctl deploy``.
-
+If you're operating in a cluster, after performing any of the above changes, you'll need to re-run ``zeekctl deploy``.
 
 Installation
 ------------

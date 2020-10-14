@@ -1,0 +1,23 @@
+# Checks if we've fallen behind on our template
+name: Cruft
+
+on:
+  push:
+  schedule:
+    - cron:  '30 8 * * *'
+
+jobs:
+  cruft:
+    name: Cruft
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install cruft
+      run: pip install cruft
+
+    - name: Cruft check
+      run: |
+        cd $GITHUB_WORKSPACE
+        cruft check
