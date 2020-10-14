@@ -13,19 +13,19 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install Zeek RPM
-      run: sudo $GITHUB_WORKSPACE/.ci_scripts/install_zeek.sh "zeek"
+      run: sudo $GITHUB_WORKSPACE/.helpers/install_zeek.sh "zeek"
 
     - name: Install Python dependencies
       run: sudo pip3 install -Ur docs/requirements.txt
 
     - name: Ensure Zeek was correctly installed
       run: |
-        source $GITHUB_WORKSPACE/.ci_scripts/set_env_path.sh
+        source $GITHUB_WORKSPACE/.helpers/set_env_path.sh
         zeek --version
 
     - name: Generate docs
       run: |
-        source $GITHUB_WORKSPACE/.ci_scripts/set_env_path.sh
+        source $GITHUB_WORKSPACE/.helpers/set_env_path.sh
         make -C $GITHUB_WORKSPACE/docs
 
     - name: Deploy docs

@@ -26,7 +26,7 @@ jobs:
         submodules: recursive
 
     - name: Test
-      run: $GITHUB_WORKSPACE/.ci_scripts/test.sh
+      run: $GITHUB_WORKSPACE/.helpers/test.sh
 
     - name: Run optimizer
       run: |
