@@ -16,6 +16,10 @@ Zeek Package for {{ cookiecutter.project_name }}
    :target: https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}?branch=master
    :alt: Coverage Status
 
+.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Cruft?label=Latest%20Template
+   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3ACruft
+   :alt: Template Status
+
 {{ cookiecutter.project_short_description }}
 
 Quick Start
