@@ -20,4 +20,4 @@ jobs:
     - name: Cruft check
       run: |
         cd $GITHUB_WORKSPACE
-        cruft check
+        $HOME/.local/bin/cruft check
