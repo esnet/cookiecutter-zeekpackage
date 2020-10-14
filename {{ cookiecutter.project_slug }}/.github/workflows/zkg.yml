@@ -15,7 +15,8 @@ jobs:
   test_ubuntu:
     name: Ubuntu ${{ matrix.distro_version }} with Zeek ${{ matrix.zeek }}
     runs-on: ubuntu-20.04
-    container: grigorescu/zeek_ubuntu_${{ matrix.distro_version }}:${{ matrix.zeek }}
+    container:
+      image: grigorescu/zeek_ubuntu_${{ matrix.distro_version }}:${{ matrix.zeek }}
 
     strategy:
       fail-fast: false
@@ -38,7 +39,8 @@ jobs:
   test_centos_8:
     name: CentOS 8 with Zeek ${{ matrix.zeek }}
     runs-on: ubuntu-20.04
-    container: grigorescu/zeek_centos_8:${{ matrix.zeek }}
+    container:
+      image: grigorescu/zeek_centos_8:${{ matrix.zeek }}
 
     strategy:
       fail-fast: false

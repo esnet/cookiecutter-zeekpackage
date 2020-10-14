@@ -18,13 +18,46 @@ Zeek Package for {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_short_description }}
 
-Getting Started
----------------
+Quick Start
+-----------
 
-These instructions will get you a copy of the package up and running on your Zeek cluster. See development for notes on how to install the package in order to hack on or contribute to it.
+If you already have Zeek and ``zkg`` installed, simply run:
 
-Prerequisites
--------------
+.. code-block:: console
+
+    zkg install https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+
+If this is being installed on a cluster, install the package on the manager, then deploy it via:
+
+.. code-block:: console
+
+    zeekctl deploy
+
+Updating and Unloading
+----------------------
+
+We use `SemVer <http://semver.org/>`_ for versioning. For the versions
+available, see the `tags on this repository <../../tags>`_. You can
+pass an additional argument to the ``install`` command with the desired
+version.
+
+To upgrade to the latest version run:
+
+.. code-block:: console
+
+    zkg upgrade {{ cookiecutter.project_slug }}
+
+You can modify the above command by replacing ``upgrade`` with:
+
+* ``unload``, to configure Zeek to not load the package on startup.
+* ``load``, to configure Zeek to load the package on startup (default after an install).
+* ``remove``, to delete the package from the system.
+
+AfteIf you're operating in a cluster, after performing any of the above changes, you'll need to re-run ``zeekctl deploy``.
+
+
+Installation
+------------
 
 .. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%203.0?label=v3.0&logo={{ logo }}
    :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+3.0%22
@@ -44,7 +77,9 @@ Prerequisites
 
 This is a package designed to run with the `Zeek Network Security Monitor <https://zeek.org>`__. First, `get Zeek <https://zeek.org/get-zeek/>`_. We strive to support both the current feature and LTS releases.
 
-The recommended installation method is via the `Zeek package manager, zkg <https://docs.zeek.org/projects/package-manager/en/stable/>`_. On any recent system, run `pip install zkg`. After installation, run `zkg autoconfig`. For more information, see the `zkg documentation <https://docs.zeek.org/projects/package-manager/en/stable/quickstart.html>`_.
+The recommended installation method is via the `Zeek package manager, zkg <https://docs.zeek.org/projects/package-manager/en/stable/>`_. Follow the `Quickstart guide <https://docs.zeek.org/projects/package-manager/en/stable/quickstart.html>`_.
+
+To have Zeek load packages managed by ``zkg``, ensure that ``@load packages`` is being loaded by Zeek.
 
 This package is also tested with the following legacy Zeek (Bro) versions, although their use is strongly discouraged, due to security and performance issues and continued compatability is not supported.
 
@@ -76,51 +111,9 @@ This package is also tested with the following legacy Zeek (Bro) versions, altho
    :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+2.0%22
    :alt: Zeek v2.0 Test Status
 
-Installing
-----------
-
-To install the package, run:
-
-.. code-block:: console
-
-    zkg install https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-
-If this is being installed on a cluster, install the package on the manager, then deploy it via:
-
-.. code-block:: console
-
-    zeekctl deploy
-
-Running the tests
------------------
-
-`zkg` will run the test suite before installing. To manually run the tests, go into the `tests` directory, and run `make`.
-
-Contributing
-------------
-
-Please read [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for details on how to contribute.
-
-Versioning
-----------
-
-We use `SemVer <http://semver.org/>`_ for versioning. For the versions available, see the `tags on this repository <../../tags>`_.
-
-Credits
--------
-
-{% for credit in cookiecutter.project_credits.split(', ') %}
-* {{ credit }}
-{% endfor %}
-
-See also the list of `contributors <contributors>`_ who participated in this project.
+.. include:: docs/contributing.rst
 
 License
 -------
 
-{% if is_open_source %}This project is licensed under the {{ cookiecutter.open_source_license }}.{% endif %} See the [LICENSE](LICENSE) file for details.
-
-Acknowledgments
----------------
-
-* ESnet team for Zeek Package Cookie Cutter
+{% if is_open_source %}This project is licensed under the {{ cookiecutter.open_source_license }}.{% endif %} See the `LICENSE <./LICENSE>`_ file for details.

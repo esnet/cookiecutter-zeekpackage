@@ -1,5 +1,5 @@
 {% set header -%}Zeek Package Documentation: {{ cookiecutter.project_name }}{% endset -%}
-:orphan:
+ :orphan:
 
 {% for i in header -%}={% endfor %}
 {{ header }}
@@ -22,4 +22,5 @@ Reference
 
 .. toctree::
 
+   scripts/index.rst
    genindex

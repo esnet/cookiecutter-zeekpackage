@@ -17,10 +17,14 @@ fi
 
 if [ "$CI" == "true" ]
 then
-    if [ "$TRAVIS" == "true" ]
+    echo "Workflow: $GITHUB_WORKFLOW"
+    if [ "$GITHUB_WORKFLOW" == "Zeek master" ]
     then
+        pip3 install --user cpp-coveralls PyYAML
+        env
         # Send to coveralls.io
-        cd "$SCRIPT_DIR/../.."; coveralls -i scripts --gcov-options '\-lp'
+        echo "service_name: github" > /tmp/cov.yml
+        cd "$SCRIPT_DIR/../.."; $HOME/.local/bin/coveralls -y /tmp/cov.yml -i scripts --gcov-options '\-lp'
     elif [ "$GITLAB_CI" == "true" ]
     then
         cp "$SCRIPT_DIR/../.btest_output.xml" "$CI_PROJECT_DIR/.btest_output.xml"
