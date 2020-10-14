@@ -102,18 +102,6 @@ This package is also tested with the following legacy Zeek (Bro) versions, altho
    :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+2.3%22
    :alt: Zeek v2.3 Test Status
 
-.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%202.2?label=v2.2&logo={{ logo }}
-   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+2.2%22
-   :alt: Zeek v2.2 Test Status
-
-.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%202.1?label=v2.1&logo={{ logo }}
-   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+2.1%22
-   :alt: Zeek v2.1 Test Status
-
-.. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Zeek%202.0?label=v2.0&logo={{ logo }}
-   :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3A%22Zeek+2.0%22
-   :alt: Zeek v2.0 Test Status
-
 Contributing
 ------------
 
