@@ -17,7 +17,7 @@ Features
 Quickstart
 ----------
 
-Install the latest Cruft if you haven't installed it yet
+Install Cruft:
 
     pip install -U cruft
 
@@ -26,6 +26,10 @@ Generate a Zeek package project:
     cruft create https://github.com/esnet/cookiecutter-zeekpackage.git
 
 Answer some questions, and it will create a new directory for you, initialized as a git repo.
+
+Enable GitHub Pages support (gh-pages branch).
+
+To update, `cruft update`.
 
 If you'd like free Zeek script coverage reports via [Coveralls](https://coveralls.io), login and sync your repositories.
 
