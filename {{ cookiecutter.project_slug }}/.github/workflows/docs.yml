@@ -1,0 +1,36 @@
+# Builds the docs, and pushes them to Github Pages
+name: Documentation
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Documentation
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Zeek RPM
+      run: sudo $GITHUB_WORKSPACE/.ci_scripts/install_zeek.sh "zeek"
+
+    - name: Install Python dependencies
+      run: sudo pip3 install -Ur docs/requirements.txt
+
+    - name: Ensure Zeek was correctly installed
+      run: |
+        source $GITHUB_WORKSPACE/.ci_scripts/set_env_path.sh
+        zeek --version
+
+    - name: Generate docs
+      run: |
+        source $GITHUB_WORKSPACE/.ci_scripts/set_env_path.sh
+        make -C $GITHUB_WORKSPACE/docs
+
+    - name: Deploy docs
+      uses: JamesIves/github-pages-deploy-action@3.5.9
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: docs/html

@@ -1,17 +1,17 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
 # Our directory structure
 dir=$( cd "$( dirname "$0" )" && pwd )
 source_dir=$( cd "$dir"/.. && pwd )
-output_dir=$source_dir/docs
-build_dir=$source_dir/build
+output_dir=${source_dir}/docs
+build_dir=${source_dir}/build
 
-conf_file=$build_dir/zeekygen-test.conf
-zeek_error_file=$build_dir/zeekygen-test-stderr.txt
+conf_file=${build_dir}/zeekygen-test.conf
+zeek_error_file=${build_dir}/zeekygen-test-stderr.txt
 
-scripts_output_dir=$output_dir/scripts
+scripts_output_dir=${output_dir}/scripts
 
 mkdir -p "$build_dir"
 rm -rf "$scripts_output_dir"
@@ -40,8 +40,8 @@ cd "$source_dir"/scripts
 find * -maxdepth 1 -mindepth 1 -type d -print0 | while IFS="" read -r -d $'\0' namespace
 do
     (cat <<EOF
-script	$namespace/*	$scripts_output_dir/
-package	$namespace	$output_dir/index.rst
+script	${namespace}/*	${scripts_output_dir}/
+package	${namespace}	${output_dir}/index.rst
 EOF
 ) > "$conf_file"
 	run_zeek "$namespace"

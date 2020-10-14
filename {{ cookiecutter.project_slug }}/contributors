@@ -1,1 +1,3 @@
-
+{% for credit in cookiecutter.project_credits.split(', ') %}
+* {{ credit }}
+{% endfor %}

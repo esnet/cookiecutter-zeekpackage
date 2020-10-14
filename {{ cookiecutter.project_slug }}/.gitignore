@@ -19,8 +19,6 @@ __pycache__/
 # Sphinx documentation
 docs/_build/
 
-
-
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~

@@ -2,8 +2,49 @@
 #
 # BTest helper for getting values for Zeek-related environment variables.
 
+function best_guess {
+    if [ -d "/usr/local/zeek" ]; then
+        BASE=/usr/local/zeek
+        ZEEKPATH=/usr/local/zeek/share/zeek
+        PPATH=/usr/local/zeek/lib/zeek/plugins
+    elif [ -d "/opt/zeek" ]; then
+        BASE=/opt/zeek
+        ZEEKPATH=/opt/zeek/share/zeek
+        PPATH=/opt/zeek/lib/zeek/plugins
+    elif [ -d "/usr/local/bro" ]; then
+        BASE=/usr/local/bro
+        ZEEKPATH=/usr/local/bro/share/bro
+        PPATH=/usr/local/bro/lib/bro/plugins
+    elif [ -d "/opt/bro" ]; then
+        BASE=/opt/bro
+        ZEEKPATH=/opt/bro/share/bro
+        PPATH=/opt/bro/lib/bro/plugins
+    else
+        echo "Could not find install"
+        exit 1
+    fi
+
+    if [ "$1" == "zeekpath" ]; then
+        echo .:${ZEEKPATH}:${ZEEKPATH}/policy:${ZEEKPATH}/site
+    elif [ "$1" == "zeek_plugin_path" ]; then
+        echo ${BASE}/lib
+    elif [ "$1" == "path" ]; then
+        echo ${BASE}/bin:${PATH}
+    fi
+}
+
 base=`dirname $0`
-zeek_dist=`cat ${base}/../../build/CMakeCache.txt 2> /dev/null | grep ZEEK_DIST | cut -d = -f 2`
+if [ -f ${base}/../../build/CMakeCache.txt ]; then
+    zeek_dist=`cat ${base}/../../build/CMakeCache.txt 2> /dev/null | grep ZEEK_DIST | cut -d = -f 2`
+    if [ -n "${zeek_dist}" ]; then
+        zeek_dist=`cat ${base}/../../build/CMakeCache.txt 2> /dev/null | grep BRO_DIST | cut -d = -f 2`
+    fi
+elif [ -f /build/CMakeCache.txt ]; then
+    zeek_dist=`cat /build/CMakeCache.txt 2> /dev/null | grep ZEEK_DIST | cut -d = -f 2`
+    if [ -n "${zeek_dist}" ]; then
+        zeek_dist=`cat /build/CMakeCache.txt 2> /dev/null | grep BRO_DIST | cut -d = -f 2`
+    fi
+fi
 
 if [ -n "${zeek_dist}" ]; then
     if [ "$1" = "zeekpath" ]; then
@@ -18,10 +59,10 @@ if [ -n "${zeek_dist}" ]; then
     fi
 else
     # Use Zeek installation for testing. In this case zeek-config must be in PATH.
-    if ! which zeek-config >/dev/null; then
-        if ! which bro-config >/dev/null; then
-            echo "zeek-config and bro-config not found" >&2
-            exit 1
+    if ! command -v zeek-config 2>/dev/null; then
+        if ! command -v bro-config 2>/dev/null; then
+            best_guess $1
+            exit 0
         fi
         if [ "$1" == "zeekpath" ]; then
             bro-config --bropath
