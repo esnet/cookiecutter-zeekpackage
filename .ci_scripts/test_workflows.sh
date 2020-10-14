@@ -4,9 +4,10 @@ set -e
 
 ZEEK_VER=$1
 
-env
-
 pip install zkg
+export PATH=$HOME/.local/bin:$PATH
+
+env
 
 for i in /tmp/workflow-lint-*.json
 do
