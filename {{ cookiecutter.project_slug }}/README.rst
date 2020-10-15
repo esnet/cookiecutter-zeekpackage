@@ -13,7 +13,7 @@ Zeek Package for {{ cookiecutter.project_name }}
    :alt: Documentation Status
 
 .. image:: https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/badge.svg?branch=master
-   :target: https://coveralls.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}?branch=master
+   :target: https://coveralls.io/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}?branch=master
    :alt: Coverage Status
 
 .. image:: https://img.shields.io/github/workflow/status/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/Cruft?label=Latest%20Template
