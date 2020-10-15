@@ -9,8 +9,8 @@ Here's what you might want to do next. Simply delete this file when it's no long
 2. Push the branches:
 
         git remote add origin git@github.com:{{ cookiecutter.github_username}}/{{ cookiecutter.project_slug }}.git
-        git push --all origin -u
+        git push -u origin master; git push -u origin gh-pages
 
-3. [Enable GitHub pages](https://guides.github.com/features/pages/)
-4. [Sign in to Coveralls and Set the Repo to On](https://coveralls.io/repos/new)
-5. You're done! Delete this file.
+3. [Sign in to Coveralls and Set the Repo to On](https://coveralls.io/repos/new)
+
+You're done! Delete this file.
