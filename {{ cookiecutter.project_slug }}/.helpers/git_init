@@ -1,8 +1,9 @@
 #!/bin/bash
 
-env
-pwd
-find .
+if [ -d .git ]; then
+   echo "Looks like git is already initialized. Refusing to continue"
+   exit 1
+fi
 
 git init
 git add .
