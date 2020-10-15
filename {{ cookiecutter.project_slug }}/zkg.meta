@@ -6,3 +6,6 @@ tags = {{ cookiecutter.metadata_tags }}
 test_command = cd tests && make
 
 script_dir = ./scripts
+
+depends =
+  zeek >=2.0.0
