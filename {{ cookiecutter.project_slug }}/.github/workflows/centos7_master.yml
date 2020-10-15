@@ -25,4 +25,7 @@ jobs:
         submodules: recursive
 
     - name: Test
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TRAVIS_BRANCH: master
       run: $GITHUB_WORKSPACE/.helpers/test.sh
