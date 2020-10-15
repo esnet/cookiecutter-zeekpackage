@@ -13,4 +13,4 @@ Here's what you might want to do next. Simply delete this file when it's no long
 
 3. [Sign in to Coveralls and Set the Repo to On](https://coveralls.io/repos/new)
 
-You're done! Delete this file.
+You're done! [Delete this file](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/delete/master/README.md).
