@@ -18,7 +18,7 @@ else
     pip3 install --user btest || pip install --user btest
 fi
 
-cd $GITHUB_WORKSPACE/tests
+cd tests
 
 if scl -l && [ $(rpm -E %{rhel}) == "7" ]; then
     scl enable devtoolset-7 make
