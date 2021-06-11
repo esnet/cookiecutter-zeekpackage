@@ -5,12 +5,11 @@ stages:
   - test
 
 test:
-  image: grigorescu/zeek-build:centos8
+  image: grigorescu/zeek_ubuntu_20:3.2
   stage: test
   before_script:
-    - curl -L -o /etc/yum.repos.d/zeek.repo https://download.opensuse.org/repositories/security:zeek/CentOS_8/security:zeek.repo
-    - yum install -y python3-libs python3-pip zeek-core
-    - ./.helpers/install.sh
+    - ./.helpers/install_pips.sh
+    - ./.helpers/install_zkg.sh
   script:
     - ./.helpers/test.sh
   artifacts:
